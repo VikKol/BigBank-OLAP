@@ -1,0 +1,31 @@
+version: '3.2'
+
+services:
+  imply-druid:
+    image: imply-druid
+    build:
+      dockerfile: docker/Dockerfile_Druid
+      context: ../
+    restart: always
+    ports:
+      - 8881:8081
+      - 8882:8082
+      - 9095:9095
+      
+  big-bank-api:
+    image: big-bank-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://*:54345
+      - DRUID_COORDINATOR_URL=http://imply-druid:8081
+      - DRUID_BROKER_URL=http://imply-druid:8082
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile_App
+    restart: always
+    ports:
+      - 54345:54345
+    links:
+      - imply-druid
+    depends_on:
+      - imply-druid

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docker\run-integration-tests\test_data.csv" Link="Data\test_data.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <PackageReference Include="FluentAssertions" Version="5.6.0" />
+      <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BigBank.OLAP\BigBank.OLAP.csproj" />
+    <ProjectReference Include="..\..\src\BigBank.WebApi\BigBank.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>

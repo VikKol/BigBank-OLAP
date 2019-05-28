@@ -1,0 +1,8 @@
+FROM imply/imply:2.8.7 AS imply
+
+COPY ./data/ingestion_spec.json /tmp/data/ingestion_spec.json
+COPY ./docker/run-integration-tests/test_data.csv /tmp/data/data.csv
+COPY ./docker/druid_ingest_data.py /opt/imply-2.8.7/bin/druid_ingest_data.py
+COPY ./docker/entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

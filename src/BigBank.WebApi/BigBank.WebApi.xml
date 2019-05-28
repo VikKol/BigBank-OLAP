@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BigBank.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:BigBank.Controllers.PricesController">
+            <summary>
+            Price calculation API
+            </summary>
+        </member>
+        <member name="M:BigBank.Controllers.PricesController.GetAveragePrice(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            Calculates average price by specified parameters and timeslot of the <paramref name="date"/>.
+            </summary>
+            <param name="portfolio">Portfolio name (Optional)</param>
+            <param name="owner">Owner name (Optional)</param>
+            <param name="instrument">Instrument name (Optional)</param>
+            <param name="date">DateTime of the timeslot</param>
+            <returns>Average price value</returns>
+        </member>
+        <member name="P:BigBank.WebApi.Models.AveragePriceResponse.Date">
+            <summary>
+            Beginning of the timeslot
+            </summary>
+        </member>
+        <member name="P:BigBank.WebApi.Models.AveragePriceResponse.Price">
+            <summary>
+            Calculated average price
+            </summary>
+        </member>
+        <member name="P:BigBank.WebApi.Models.ErrorResult.Message">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="P:BigBank.WebApi.Models.ErrorResult.Details">
+            <summary>
+            Error details. Available in development mode
+            </summary>
+        </member>
+        <member name="P:BigBank.WebApi.Models.ErrorResult.ValidationErrors">
+            <summary>
+            Validation errors
+            </summary>
+        </member>
+        <member name="P:BigBank.WebApi.Models.ValidationError.Key">
+            <summary>
+            Field/parameter name
+            </summary>
+        </member>
+        <member name="P:BigBank.WebApi.Models.ValidationError.Errors">
+            <summary>
+            Validation messages
+            </summary>
+        </member>
+    </members>
+</doc>

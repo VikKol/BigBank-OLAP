@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28714.193
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBank.OLAP", "src\BigBank.OLAP\BigBank.OLAP.csproj", "{6B1D2FA8-13AC-4127-913B-51457C932449}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBank.WebApi", "src\BigBank.WebApi\BigBank.WebApi.csproj", "{BEAF3244-2A96-4BBB-ABC6-15B008EA170A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBank.IntegrationTests", "tests\BigBank.IntegrationTests\BigBank.IntegrationTests.csproj", "{3563B5BC-F289-463B-AFAF-76084BDCCED5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BCDB68C2-4250-4332-B4DD-32DC11E2D9A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBank.UnitTests", "tests\BigBank.UnitTests\BigBank.UnitTests.csproj", "{89826ABF-2885-407B-BE02-B9297B6A9B08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B1D2FA8-13AC-4127-913B-51457C932449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1D2FA8-13AC-4127-913B-51457C932449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1D2FA8-13AC-4127-913B-51457C932449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1D2FA8-13AC-4127-913B-51457C932449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEAF3244-2A96-4BBB-ABC6-15B008EA170A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEAF3244-2A96-4BBB-ABC6-15B008EA170A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEAF3244-2A96-4BBB-ABC6-15B008EA170A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEAF3244-2A96-4BBB-ABC6-15B008EA170A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3563B5BC-F289-463B-AFAF-76084BDCCED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3563B5BC-F289-463B-AFAF-76084BDCCED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3563B5BC-F289-463B-AFAF-76084BDCCED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3563B5BC-F289-463B-AFAF-76084BDCCED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89826ABF-2885-407B-BE02-B9297B6A9B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89826ABF-2885-407B-BE02-B9297B6A9B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89826ABF-2885-407B-BE02-B9297B6A9B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89826ABF-2885-407B-BE02-B9297B6A9B08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3563B5BC-F289-463B-AFAF-76084BDCCED5} = {BCDB68C2-4250-4332-B4DD-32DC11E2D9A4}
+		{89826ABF-2885-407B-BE02-B9297B6A9B08} = {BCDB68C2-4250-4332-B4DD-32DC11E2D9A4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DF0FC65-8AC3-440F-A1EE-A30CFB0E1C07}
+	EndGlobalSection
+EndGlobal

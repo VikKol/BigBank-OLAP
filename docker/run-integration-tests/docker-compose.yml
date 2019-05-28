@@ -1,0 +1,44 @@
+version: '3.2'
+
+services:
+  imply-druid:
+    image: imply-druid-integration-tests
+    build:
+      context: ../../
+      dockerfile: docker/run-integration-tests/Dockerfile_Druid_IntegrationTests
+    restart: always
+    ports:
+      - 8881:8081
+      - 8882:8082
+      - 9095:9095
+      
+  big-bank-api:
+    image: big-bank-api-integration-tests
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://*:54345
+      - DRUID_COORDINATOR_URL=http://imply-druid:8081
+      - DRUID_BROKER_URL=http://imply-druid:8082
+    build:
+      context: ../../
+      dockerfile: docker/Dockerfile_App
+    restart: always
+    ports:
+      - 54345:54345
+    links:
+      - imply-druid
+    depends_on:
+      - imply-druid
+      
+  integration-tests:
+    image: integration-tests
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - BIG_BANK_URL=http://big-bank-api:54345
+    build:
+      context: ../../
+      dockerfile: docker/run-integration-tests/Dockerfile_IntegrationTests
+    links:
+      - big-bank-api
+    depends_on:
+      - big-bank-api

@@ -1,0 +1,18 @@
+FROM microsoft/dotnet:2.1-sdk AS build
+WORKDIR /app
+
+COPY ./BigBank.sln ./
+COPY ./src/BigBank.OLAP/BigBank.OLAP.csproj ./src/BigBank.OLAP/BigBank.OLAP.csproj
+COPY ./src/BigBank.WebApi/BigBank.WebApi.csproj ./src/BigBank.WebApi/BigBank.WebApi.csproj
+COPY ./tests/BigBank.UnitTests/BigBank.UnitTests.csproj ./tests/BigBank.UnitTests/BigBank.UnitTests.csproj
+COPY ./tests/BigBank.IntegrationTests/BigBank.IntegrationTests.csproj ./tests/BigBank.IntegrationTests/BigBank.IntegrationTests.csproj
+
+RUN dotnet restore
+
+COPY . ./
+
+WORKDIR ./tests/BigBank.IntegrationTests
+
+ENTRYPOINT until $(curl -o /dev/null -s -f http://big-bank-api:54345/healthcheck); \
+	do sleep 15; done; \
+	dotnet test BigBank.IntegrationTests.csproj

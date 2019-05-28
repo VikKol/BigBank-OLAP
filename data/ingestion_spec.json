@@ -1,0 +1,60 @@
+{
+    "type": "index",
+    "spec": {
+        "dataSchema": {
+            "dataSource": "BigBank",
+            "parser": {
+                "type": "string",
+                "parseSpec": {
+                    "format": "csv",
+                    "columns": [ "Portfolio", "Owner", "Instrument", "Date", "Price" ],
+                    "dimensionsSpec": {
+                        "dimensions": [
+                            "Portfolio",
+                            "Owner",
+                            "Instrument"
+                        ]
+                    },
+                    "timestampSpec": {
+                        "column": "Date",
+                        "format": "dd/MM/yyyy HH:mm:ss"
+                    }
+                }
+            },
+            "metricsSpec": [
+                {
+                    "type": "count",
+                    "name": "Count"
+                },
+                {
+                    "type": "doubleSum",
+                    "name": "Price",
+                    "fieldName": "Price"
+                }
+            ],
+            "granularitySpec": {
+                "type": "uniform",
+                "segmentGranularity": "MONTH",
+                "queryGranularity": {
+                    "type": "duration",
+                    "duration": 10000000,
+                    "origin": "2018-01-01T00:00:00Z"
+                },
+                "rollup": true
+            }
+        },
+        "ioConfig": {
+            "type": "index",
+            "firehose": {
+                "type": "local",
+                "baseDir": "/tmp/data",
+                "filter": "*.csv"
+            },
+            "appendToExisting": false
+        },
+        "tuningConfig": {
+            "type": "index",
+            "forceExtendableShardSpecs": true
+        }
+    }
+}
